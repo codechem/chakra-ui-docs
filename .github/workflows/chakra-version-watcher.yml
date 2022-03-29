@@ -4,6 +4,10 @@ on:
   workflow_dispatch: # Manual testing
   schedule:
     - cron: '*/10 * * * *'
+  push:
+    branches:
+      - main
+      - feature/chakra-version-watch
 
 jobs:
   daily:
@@ -15,8 +19,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          ref: main
 
       - name: Enable node
         uses: actions/setup-node@master
